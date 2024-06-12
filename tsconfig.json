@@ -32,14 +32,17 @@
   "include": [
     "next-env.d.ts",
     "next.config.d.ts",
+    "next.config.js",
+    ".eslintrc.cjs",
     "env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "build/types/**/*.ts",
     "assets.d.ts",
-    "next-in-browser-markdown-editor/types/**/*.ts"
-, "app/pages/_document.js"  ],
+    "next-in-browser-markdown-editor/types/**/*.ts",
+    "app/pages/_document.js"
+  ],
   "exclude": [
     "node_modules"
   ]

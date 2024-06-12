@@ -1,4 +1,3 @@
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -14,6 +13,5 @@ const nextConfig = {
 // nextConfig.assetPrefix = '/server/app';
 // nextConfig.basePath = '/server/app';
 //}
-
 
 module.exports = nextConfig;

@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Kumbh_Sans, Roboto_Slab, Space_Mono } from 'next/font/google';
-import DataProvider from '@/app/_providers/DataContext';
 
 import { ReactNode } from 'react';
 
@@ -26,9 +25,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Pomodoro',
-  description: 'Pomodoro app',
-  applicationName: 'Pomodoro app',
+  title: 'Galleria slideshow site',
+  description: 'Galleria slideshow site',
+  applicationName: 'Galleria slideshow site',
 } as const;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -41,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta property="og:image" content={undefined} />
       </head>
       <body className={`${kumbhSans.variable} ${robotoSlab.variable} ${spaceMono.variable} bg-[#1E213F]`}>
-        <DataProvider>{children}</DataProvider>
+        {children}
       </body>
     </html>
   );
