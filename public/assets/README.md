@@ -1,6 +1,6 @@
-# Frontend Mentor - Pomodoro app
+# Frontend Mentor - Galleria slideshow site
 
-![Design preview for the Pomodoro app coding challenge](./preview.jpg)
+![Design preview for the Galleria slideshow site coding challenge](./preview.jpg)
 
 ## Welcome! 👋
 
@@ -12,16 +12,17 @@ Thanks for purchasing this premium Frontend Mentor coding challenge.
 
 ## The challenge
 
-Your challenge is to build out this Pomodoro timer app and get it looking as close to the design as possible.
+Your challenge is to build out this art gallery slideshow site and get it looking as close to the design as possible.
 
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
+If you choose to use a JS-heavy approach, we provide a local `data.json` file for the paintings. This means you'll be able to pull the data from there instead of using the separate `.html` files.
+
 Your users should be able to:
 
-- Set a pomodoro timer and short & long break timers
-- Customize how long each timer runs for
-- See a circular progress bar that updates every minute and represents how far through their timer they are
-- Customize the appearance of the app with the ability to set preferences for colors and fonts
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Navigate the slideshow and view each painting in a lightbox
 
 Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
 
@@ -74,12 +75,12 @@ Remember, if you're looking for feedback on your solution, be sure to ask questi
 
 There are multiple places you can share your solution:
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
+1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
 2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
 3. Share your solution on other social channels like LinkedIn.
 4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
 
 The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
 

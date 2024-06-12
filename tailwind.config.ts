@@ -17,9 +17,9 @@ const config: Config = {
         screenInBetween: '1024px',
       },
       fontFamily: {
-        kumbhSans: ['var(--font-kumbh-sans)'],
-        robotoSlab: ['var(--font-roboto-slab)'],
-        spaceMono: ['var(--font-space-mono)'],
+        sans: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+        libreBaskerville: ['var(--font-libre-baskerville)'],
       },
       colors: {
         gray1: '#121212',
