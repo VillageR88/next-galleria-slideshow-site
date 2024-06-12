@@ -34,6 +34,7 @@
     "next.config.d.ts",
     "next.config.js",
     ".eslintrc.cjs",
+    "postcss.config.js",
     "env.d.ts",
     "**/*.ts",
     "**/*.tsx",
