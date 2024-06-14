@@ -12,7 +12,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
             <Image src={data.images.thumbnail} width={10} height={10} className="size-fit" alt={data.name} />
             {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
             <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px]">
-              <h2 className="whitespace-pre-wrap text-pretty text-[24px] font-bold leading-[30px] text-white">
+              <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
                 {data.name}
               </h2>
               <p className="text-[13px] text-white/75">{data.artist.name}</p>
@@ -29,7 +29,9 @@ export default function Main() {
   const array4 = [3, 7, 10, 14];
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 1280) {
+      if (window.innerWidth < 640) {
+        setArray1(dataJson.map((_, index) => index));
+      } else if (window.innerWidth < 1280) {
         setArray1([0, 4, 8, 11, 2, 6, 13]);
         setArray2([1, 5, 9, 12, 3, 7, 10, 14]);
       } else {
@@ -45,9 +47,9 @@ export default function Main() {
   }, []);
 
   return (
-    <div className="mt-[40px] grid size-fit grid-cols-2 gap-[40px] xl:grid-cols-4">
+    <div className="mt-[40px] grid size-fit gap-[40px] sm:grid-cols-2 xl:grid-cols-4">
       <Column array={array1}></Column>
-      <Column array={array2}></Column>
+      <Column classExtension="sm:block hidden" array={array2}></Column>
       <Column classExtension="xl:block hidden" array={array3}></Column>
       <Column classExtension="xl:block hidden" array={array4}></Column>
     </div>
