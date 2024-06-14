@@ -8,16 +8,18 @@ const Column = ({ array }: { array: number[] }) => (
         return (
           <div className="relative" key={index}>
             <Image src={data.images.thumbnail} width={10} height={10} className="size-fit" alt={data.name} />
-            <div className="absolute inset-0 flex size-full flex-col justify-end px-[32px] pb-[33px] text-white">
-              <h2>{data.name}</h2>
-              <p>{data.artist.name}</p>
+            {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+            <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px]">
+              <h2 className="whitespace-pre-wrap text-pretty text-[24px] font-bold leading-[30px] text-white">
+                {data.name}
+              </h2>
+              <p className="text-[13px] text-white/75">{data.artist.name}</p>
             </div>
           </div>
         );
     })}
   </div>
 );
-//[0, 4, 8, 11]
 export default function Main() {
   return (
     <div className="mt-[40px] grid size-fit grid-cols-4 gap-[40px]">
