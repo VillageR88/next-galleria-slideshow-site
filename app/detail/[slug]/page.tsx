@@ -20,18 +20,30 @@ export default function Page() {
       className={`z-0 flex min-h-dvh flex-col items-center justify-start p-[40px] font-libreBaskerville sm:min-h-screen`}
     >
       <Navbar />
-      <div className="mt-[100px] flex h-[624px] w-full">
-        <Image
-          className="h-[560px] w-[475px]"
-          width={475}
-          height={560}
-          src={'/' + data.images.hero.large}
-          alt={data.name}
-        />
-        <div className="ml-[-65px] flex h-fit w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
-          <h1 className="text-balance text-[56px] font-bold leading-[64px] text-black">{data.name}</h1>
-          <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
+      <div className="mt-[100px] flex h-[624px] w-full justify-between">
+        <div className="flex">
+          <Image
+            className="h-[560px] w-[475px]"
+            width={475}
+            height={560}
+            src={'/' + data.images.hero.large}
+            alt={data.name}
+          />
+          <div className="flex h-full flex-col justify-between">
+            <div className="ml-[-65px] flex h-fit w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
+              <h1 className="text-balance text-[56px] font-bold leading-[64px] text-black">{data.name}</h1>
+              <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
+            </div>
+            <Image
+              width={128}
+              height={128}
+              className="ml-[30px] size-[128px]"
+              alt={data.artist.name + ' image'}
+              src={'/' + data.artist.image}
+            />
+          </div>
         </div>
+        initialRightSide
       </div>
     </div>
   );
