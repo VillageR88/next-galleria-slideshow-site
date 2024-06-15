@@ -2,10 +2,12 @@
 import Navbar from '@/app/home/Navbar';
 import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [pathname, setPathname] = useState('');
+  const title_goToSource = 'GO TO SOURCE';
   console.log(pathname);
   useEffect(() => {
     const decodedPathname = decodeURIComponent(window.location.pathname.split('/')[2]);
@@ -43,7 +45,20 @@ export default function Page() {
             />
           </div>
         </div>
-        initialRightSide
+        <div className="flex flex-col justify-between">
+          <div>
+            <h2 className="text-[200px] font-bold leading-[150px] text-[#F3F3F3]">{data.year}</h2>
+            <p className="mt-[-35px] w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
+              {data.description}
+            </p>
+          </div>
+          <Link
+            href={data.source}
+            className="mb-[53px] size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D]"
+          >
+            {title_goToSource}
+          </Link>
+        </div>
       </div>
     </div>
   );
