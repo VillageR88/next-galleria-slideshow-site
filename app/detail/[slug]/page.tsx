@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [pathname, setPathname] = useState<string>('');
-  console.log(pathname);
   const [progress, setProgress] = useState<number>(0);
   const title_goToSource = 'GO TO SOURCE';
   useEffect(() => {
@@ -19,9 +18,7 @@ export default function Page() {
   const data = dataJson.find((item) => item.name === pathname);
   const indexProgress = dataJson.findIndex((item) => item.name === pathname);
   useEffect(() => {
-    console.log(indexProgress);
-    console.log(dataJson.length);
-    setProgress(indexProgress + 1 / dataJson.length);
+    setProgress(((indexProgress + 1) / dataJson.length) * 100);
   }, [indexProgress]);
   if (!data) return null;
 
@@ -36,6 +33,7 @@ export default function Page() {
             height={560}
             src={'/' + data.images.hero.large}
             alt={data.name}
+            priority
           />
           <div className="flex h-full flex-col justify-between">
             <div className="ml-[-65px] flex h-fit w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
