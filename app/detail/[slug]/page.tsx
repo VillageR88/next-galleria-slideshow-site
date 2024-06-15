@@ -70,15 +70,17 @@ export default function Page() {
       <Footer
         data={data}
         progress={progress}
+        previousDisabled={indexProgress === 0}
+        previousClicked={() => {
+          const previousIndex = indexProgress - 1;
+          if (dataJson[previousIndex]) router.push(`/detail/${dataJson[previousIndex].name.replace(/ /g, '_')}`);
+        }}
+        nextDisabled={indexProgress === dataJson.length - 1}
         nextClicked={() => {
           const nextIndex = indexProgress + 1;
           if (dataJson[nextIndex]) {
             router.push(`/detail/${dataJson[nextIndex].name.replace(/ /g, '_')}`);
           }
-        }}
-        previousClicked={() => {
-          const previousIndex = indexProgress - 1;
-          if (dataJson[previousIndex]) router.push(`/detail/${dataJson[previousIndex].name.replace(/ /g, '_')}`);
         }}
       />
     </div>

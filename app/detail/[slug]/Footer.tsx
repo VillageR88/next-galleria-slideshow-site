@@ -4,6 +4,8 @@ import ButtonPrevious from '@/app/components/ButtonPrevious';
 export default function Footer({
   progress,
   data,
+  nextDisabled,
+  previousDisabled,
   previousClicked,
   nextClicked,
 }: {
@@ -26,6 +28,8 @@ export default function Footer({
       gallery: string;
     };
   };
+  nextDisabled: boolean;
+  previousDisabled: boolean;
   previousClicked(): void;
   nextClicked(): void;
 }) {
@@ -40,8 +44,8 @@ export default function Footer({
           <p className="text-[13px] text-black/[75.28%]">{data.artist.name}</p>
         </div>
         <div className="flex gap-[40px]">
-          <ButtonPrevious clicked={previousClicked} />
-          <ButtonNext clicked={nextClicked} />
+          <ButtonPrevious disabled={previousDisabled} clicked={previousClicked} />
+          <ButtonNext disabled={nextDisabled} clicked={nextClicked} />
         </div>
       </div>
     </div>
