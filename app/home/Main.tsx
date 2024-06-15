@@ -10,7 +10,12 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
   return (
     <div className="flex flex-col gap-[40px]">
       {dataJson.map((data, index) => {
-        const dataName = data.name === 'Van Gogh self-portrait' ? 'Van Gogh\nself-portrait' : data.name;
+        // const dataName = data.name === 'Van Gogh self-portrait' ? 'Van Gogh\nself-portrait' : data.name;
+        const newLineHardCoder = (name: string) => {
+          if (name === 'Van Gogh self-portrait') return 'Van Gogh\nself-portrait';
+          return name;
+        };
+
         if (array.includes(index))
           return (
             <button
@@ -25,7 +30,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
               {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
               <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
                 <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
-                  {dataName}
+                  {newLineHardCoder(data.name)}
                 </h2>
                 <p className="text-[13px] text-white/75">{data.artist.name}</p>
               </div>
