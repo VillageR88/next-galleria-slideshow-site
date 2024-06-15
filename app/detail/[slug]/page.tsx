@@ -1,12 +1,15 @@
 'use client';
-import Navbar from '@/app/home/Navbar';
+import Navbar from '@/app/components/Navbar';
+import Footer from '@/app/detail/[slug]/Footer';
 import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
-  const [pathname, setPathname] = useState('');
+  const [pathname, setPathname] = useState<string>('');
+  console.log(pathname);
+  const [progress, setProgress] = useState<number>(0);
   const title_goToSource = 'GO TO SOURCE';
   useEffect(() => {
     const decodedPathname = window.location.pathname.split('/')[2].replace(/_/g, ' ');
@@ -14,12 +17,16 @@ export default function Page() {
   }, []);
 
   const data = dataJson.find((item) => item.name === pathname);
+  const indexProgress = dataJson.findIndex((item) => item.name === pathname);
+  useEffect(() => {
+    console.log(indexProgress);
+    console.log(dataJson.length);
+    setProgress(indexProgress + 1 / dataJson.length);
+  }, [indexProgress]);
   if (!data) return null;
 
   return (
-    <div
-      className={`z-0 flex min-h-dvh flex-col items-center justify-start p-[40px] font-libreBaskerville sm:min-h-screen`}
-    >
+    <div className={`z-0 flex min-h-dvh flex-col justify-start p-[40px] font-libreBaskerville sm:min-h-screen`}>
       <Navbar />
       <div className="mt-[100px] flex h-[624px] w-full justify-between">
         <div className="flex">
@@ -59,6 +66,7 @@ export default function Page() {
           </Link>
         </div>
       </div>
+      <Footer data={data} progress={progress} />
     </div>
   );
 }
