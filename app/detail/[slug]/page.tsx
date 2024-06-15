@@ -5,8 +5,10 @@ import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
+  const router = useRouter();
   const [pathname, setPathname] = useState<string>('');
   const [progress, setProgress] = useState<number>(0);
   const title_goToSource = 'GO TO SOURCE';
@@ -72,7 +74,7 @@ export default function Page() {
           const nextData = dataJson[nextIndex];
           // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           if (nextData) {
-            setPathname(nextData.name);
+            router.push(`/detail/${nextData.name.replace(/ /g, '_')}`);
           }
         }}
         previousClicked={() => {
@@ -80,7 +82,7 @@ export default function Page() {
           const previousData = dataJson[previousIndex];
           // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           if (previousData) {
-            setPathname(previousData.name);
+            router.push(`/detail/${previousData.name.replace(/ /g, '_')}`);
           }
         }}
       />
