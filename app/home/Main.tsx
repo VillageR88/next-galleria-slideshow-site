@@ -14,7 +14,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
           return (
             <button
               onClick={() => {
-                router.push(`/detail/${data.name}`);
+                router.push(`/detail/${data.name.replace(/ /g, '_')}`);
               }}
               key={index}
               type="button"

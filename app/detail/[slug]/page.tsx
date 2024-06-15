@@ -8,9 +8,8 @@ import { useEffect, useState } from 'react';
 export default function Page() {
   const [pathname, setPathname] = useState('');
   const title_goToSource = 'GO TO SOURCE';
-  console.log(pathname);
   useEffect(() => {
-    const decodedPathname = decodeURIComponent(window.location.pathname.split('/')[2]);
+    const decodedPathname = window.location.pathname.split('/')[2].replace(/_/g, ' ');
     setPathname(decodedPathname);
   }, []);
 
