@@ -4,6 +4,10 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+const newLineHardCoder = (name: string) => {
+  if (name === 'Van Gogh self-portrait') return 'Van Gogh\nself-portrait';
+  return name;
+};
 const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => {
   const router = useRouter();
 
@@ -11,10 +15,6 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
     <div className="flex flex-col gap-[40px]">
       {dataJson.map((data, index) => {
         // const dataName = data.name === 'Van Gogh self-portrait' ? 'Van Gogh\nself-portrait' : data.name;
-        const newLineHardCoder = (name: string) => {
-          if (name === 'Van Gogh self-portrait') return 'Van Gogh\nself-portrait';
-          return name;
-        };
 
         if (array.includes(index))
           return (
