@@ -2,26 +2,38 @@
 import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => (
-  <div className="flex flex-col gap-[40px]">
-    {dataJson.map((data, index) => {
-      if (array.includes(index))
-        return (
-          <div className={`relative ${classExtension ? classExtension : ''}`} key={index}>
-            <Image src={data.images.thumbnail} width={10} height={10} className="size-fit" alt={data.name} />
-            {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-            <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px]">
-              <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
-                {data.name}
-              </h2>
-              <p className="text-[13px] text-white/75">{data.artist.name}</p>
-            </div>
-          </div>
-        );
-    })}
-  </div>
-);
+const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => {
+  const router = useRouter();
+
+  return (
+    <div className="flex flex-col gap-[40px]">
+      {dataJson.map((data, index) => {
+        if (array.includes(index))
+          return (
+            <button
+              onClick={() => {
+                router.push(`/detail/${data.name}`);
+              }}
+              key={index}
+              type="button"
+              className={`relative ${classExtension ? classExtension : ''}`}
+            >
+              <Image src={data.images.thumbnail} width={10} height={10} className="size-fit" alt={data.name} />
+              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+              <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px]">
+                <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
+                  {data.name}
+                </h2>
+                <p className="text-[13px] text-white/75">{data.artist.name}</p>
+              </div>
+            </button>
+          );
+      })}
+    </div>
+  );
+};
 export default function Main() {
   const [array1, setArray1] = useState<number[]>([0, 4, 8, 11]);
   const [array2, setArray2] = useState<number[]>([1, 5, 9, 12]);
