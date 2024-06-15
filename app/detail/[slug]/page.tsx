@@ -10,10 +10,11 @@ import { useRouter } from 'next/navigation';
 export default function Page() {
   const router = useRouter();
   const [pathname, setPathname] = useState<string>('');
+  console.log('pathname', pathname);
   const [progress, setProgress] = useState<number>(0);
   const title_goToSource = 'GO TO SOURCE';
   useEffect(() => {
-    const decodedPathname = window.location.pathname.split('/')[2].replace(/_/g, ' ');
+    const decodedPathname = decodeURI(window.location.pathname.split('/')[2].replace(/_/g, ' '));
     setPathname(decodedPathname);
   }, []);
 
@@ -71,19 +72,13 @@ export default function Page() {
         progress={progress}
         nextClicked={() => {
           const nextIndex = indexProgress + 1;
-          const nextData = dataJson[nextIndex];
-          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-          if (nextData) {
-            router.push(`/detail/${nextData.name.replace(/ /g, '_')}`);
+          if (dataJson[nextIndex]) {
+            router.push(`/detail/${dataJson[nextIndex].name.replace(/ /g, '_')}`);
           }
         }}
         previousClicked={() => {
           const previousIndex = indexProgress - 1;
-          const previousData = dataJson[previousIndex];
-          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-          if (previousData) {
-            router.push(`/detail/${previousData.name.replace(/ /g, '_')}`);
-          }
+          if (dataJson[previousIndex]) router.push(`/detail/${dataJson[previousIndex].name.replace(/ /g, '_')}`);
         }}
       />
     </div>
