@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { newLineHardCoder } from '@/app/_lib/functions';
 
 export default function Page() {
   const router = useRouter();
@@ -40,7 +41,9 @@ export default function Page() {
           />
           <div className="flex h-full flex-col justify-between">
             <div className="ml-[-65px] flex h-fit w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
-              <h1 className="text-balance text-[56px] font-bold leading-[64px] text-black">{data.name}</h1>
+              <h1 className="whitespace-pre-wrap text-balance text-[56px] font-bold leading-[64px] text-black">
+                {newLineHardCoder(data.name)}
+              </h1>
               <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
             </div>
             <Image
@@ -53,8 +56,10 @@ export default function Page() {
           </div>
         </div>
         <div className="flex flex-col justify-between">
-          <div>
-            <h2 className="text-[200px] font-bold leading-[150px] text-[#F3F3F3]">{data.year}</h2>
+          <div className="relative pr-[125px] pt-[150px]">
+            <h2 className="absolute right-0 top-0 -z-10 text-[200px] font-bold leading-[150px] text-[#F3F3F3]">
+              {data.year}
+            </h2>
             <p className="mt-[-35px] w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
               {data.description}
             </p>

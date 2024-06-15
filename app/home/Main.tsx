@@ -3,11 +3,7 @@ import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-const newLineHardCoder = (name: string) => {
-  if (name === 'Van Gogh self-portrait') return 'Van Gogh\nself-portrait';
-  return name;
-};
+import { newLineHardCoder } from '@/app/_lib/functions';
 
 const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => {
   const router = useRouter();
