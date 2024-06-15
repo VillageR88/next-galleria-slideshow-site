@@ -64,7 +64,26 @@ export default function Page() {
           </Link>
         </div>
       </div>
-      <Footer data={data} progress={progress} />
+      <Footer
+        data={data}
+        progress={progress}
+        nextClicked={() => {
+          const nextIndex = indexProgress + 1;
+          const nextData = dataJson[nextIndex];
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+          if (nextData) {
+            setPathname(nextData.name);
+          }
+        }}
+        previousClicked={() => {
+          const previousIndex = indexProgress - 1;
+          const previousData = dataJson[previousIndex];
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+          if (previousData) {
+            setPathname(previousData.name);
+          }
+        }}
+      />
     </div>
   );
 }

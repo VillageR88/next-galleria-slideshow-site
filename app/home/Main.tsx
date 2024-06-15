@@ -8,6 +8,7 @@ const newLineHardCoder = (name: string) => {
   if (name === 'Van Gogh self-portrait') return 'Van Gogh\nself-portrait';
   return name;
 };
+
 const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => {
   const router = useRouter();
 
