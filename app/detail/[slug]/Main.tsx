@@ -28,6 +28,13 @@ export default function Main({
               alt={data.name}
               priority
             />
+            <Image
+              width={128}
+              height={128}
+              className="absolute bottom-0 left-[calc(30px+475px)] size-[128px]"
+              alt={data.artist.name + ' image'}
+              src={'/' + data.artist.image}
+            />
             <button
               onClick={() => {
                 setShowGallery(true);
@@ -51,13 +58,6 @@ export default function Main({
             </h1>
             <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
           </div>
-          <Image
-            width={128}
-            height={128}
-            className="ml-[30px] size-[128px]"
-            alt={data.artist.name + ' image'}
-            src={'/' + data.artist.image}
-          />
         </div>
       );
     };
@@ -71,10 +71,14 @@ export default function Main({
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-fit max-w-[500px] flex-col justify-between pl-[40px]">
-        <div>
-          <h2 className="-z-10 flex text-[200px] font-bold leading-[150px] text-[#F3F3F3]">{data.year}</h2>
-          <p className="mt-[-35px] w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">{data.description}</p>
+      <div className="flex w-fit flex-col justify-between pl-[40px]">
+        <div className="flex flex-col">
+          <h2 className="-z-10 flex text-[13vw] font-bold leading-[150px] text-[#F3F3F3] screen1440:text-[200px]">
+            {data.year}
+          </h2>
+          <p className="mt-[-35px] w-full max-w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
+            {data.description}
+          </p>
         </div>
         <Link
           href={data.source}
