@@ -11,7 +11,6 @@ import { newLineHardCoder } from '@/app/_lib/functions';
 export default function Page() {
   const router = useRouter();
   const [pathname, setPathname] = useState<string>('');
-  console.log('pathname', pathname);
   const [progress, setProgress] = useState<number>(0);
   const title_goToSource = 'GO TO SOURCE';
   useEffect(() => {
@@ -21,6 +20,13 @@ export default function Page() {
 
   const data = dataJson.find((item) => item.name === pathname);
   const indexProgress = dataJson.findIndex((item) => item.name === pathname);
+  const previousIndex = indexProgress - 1;
+  const nextIndex = indexProgress + 1;
+
+  useEffect(() => {
+    if (dataJson[previousIndex]) router.prefetch(`/detail/${dataJson[previousIndex].name.replace(/ /g, '_')}`);
+    if (dataJson[nextIndex]) router.prefetch(`/detail/${dataJson[nextIndex].name.replace(/ /g, '_')}`);
+  }, [nextIndex, previousIndex, router]);
 
   useEffect(() => {
     setProgress(((indexProgress + 1) / dataJson.length) * 100);
@@ -78,17 +84,13 @@ export default function Page() {
         progress={progress}
         previousDisabled={indexProgress === 0}
         previousClicked={() => {
-          const previousIndex = indexProgress - 1;
           if (dataJson[previousIndex]) {
-            router.prefetch(`/detail/${dataJson[previousIndex].name.replace(/ /g, '_')}`);
             router.push(`/detail/${dataJson[previousIndex].name.replace(/ /g, '_')}`);
           }
         }}
         nextDisabled={indexProgress === dataJson.length - 1}
         nextClicked={() => {
-          const nextIndex = indexProgress + 1;
           if (dataJson[nextIndex]) {
-            router.prefetch(`/detail/${dataJson[nextIndex].name.replace(/ /g, '_')}`);
             router.push(`/detail/${dataJson[nextIndex].name.replace(/ /g, '_')}`);
           }
         }}
