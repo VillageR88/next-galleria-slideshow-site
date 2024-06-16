@@ -6,8 +6,8 @@ export default function Footer({
   data,
   nextDisabled,
   previousDisabled,
-  previousClicked,
-  nextClicked,
+  previousLink,
+  nextLink,
 }: {
   progress: number;
   data: {
@@ -30,8 +30,8 @@ export default function Footer({
   };
   nextDisabled: boolean;
   previousDisabled: boolean;
-  previousClicked(): void;
-  nextClicked(): void;
+  previousLink: string | undefined;
+  nextLink: string | undefined;
 }) {
   return (
     <div className="mt-[75px] flex flex-col">
@@ -44,8 +44,8 @@ export default function Footer({
           <p className="text-[13px] text-black/[75.28%]">{data.artist.name}</p>
         </div>
         <div className="flex gap-[40px]">
-          <ButtonPrevious disabled={previousDisabled} clicked={previousClicked} />
-          <ButtonNext disabled={nextDisabled} clicked={nextClicked} />
+          <ButtonPrevious disabled={previousDisabled} previousLink={previousLink} />
+          <ButtonNext disabled={nextDisabled} nextLink={nextLink} />
         </div>
       </div>
     </div>
