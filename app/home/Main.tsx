@@ -15,6 +15,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
         // const dataName = data.name === 'Van Gogh self-portrait' ? 'Van Gogh\nself-portrait' : data.name;
         const GalleryImage = () => (
           <Image
+            priority
             onLoad={() => {
               setShow((prev) => {
                 const newShow = [...prev];
