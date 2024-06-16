@@ -73,7 +73,7 @@ export default function Main({
     return (
       <div className="flex w-fit flex-col justify-between pl-[40px]">
         <div className="flex flex-col">
-          <h2 className="-z-10 flex text-[13vw] font-bold leading-[150px] text-[#F3F3F3] screen1440:text-[200px]">
+          <h2 className="-z-10 flex text-[14vw] font-bold leading-[150px] text-[#F3F3F3] screen1440:text-[200px]">
             {data.year}
           </h2>
           <p className="mt-[-35px] w-full max-w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
