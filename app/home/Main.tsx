@@ -25,7 +25,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
             src={data.images.thumbnail}
             width={10}
             height={10}
-            className="size-fit"
+            className="relative -z-10 size-fit"
             alt={data.name}
           />
         );
@@ -38,12 +38,12 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
               }}
               key={index}
               type="button"
-              className={`relative ${classExtension ? classExtension : ''}`}
+              className={`relative size-full ${classExtension ? classExtension : ''}`}
             >
               <GalleryImage />
               {showDescription[index] && (
                 /* eslint-disable-next-line tailwindcss/no-custom-classname */
-                <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
+                <div className="to pointer-events-none absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
                   <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
                     {newLineHardCoder(data.name)}
                   </h2>
