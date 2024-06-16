@@ -16,11 +16,12 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
           <Image
             priority
             onLoad={() => {
-              setShowDescription((prev) => {
-                const newShow = [...prev];
-                newShow[index] = true;
-                return newShow;
-              });
+              if (!showDescription[index])
+                setShowDescription((prev) => {
+                  const newShow = [...prev];
+                  newShow[index] = true;
+                  return newShow;
+                });
             }}
             src={data.images.thumbnail}
             width={10}

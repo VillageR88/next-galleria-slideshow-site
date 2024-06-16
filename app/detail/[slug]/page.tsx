@@ -10,14 +10,15 @@ import imageView from '@/public/assets/shared/icon-view-image.svg';
 import { DataContext } from '@/app/_lib/DataContext';
 
 export default function Page() {
-  const { setShowSlideshow } = useContext(DataContext);
-  const titleViewImage = 'VIEW IMAGE';
-  const [showGallery, setShowGallery] = useState<boolean>(false);
-  const titleButtonClose = 'CLOSE';
   const router = useRouter();
+  const { setShowSlideshow } = useContext(DataContext);
+  const [showGallery, setShowGallery] = useState<boolean>(false);
   const [pathname, setPathname] = useState<string>('');
   const [progress, setProgress] = useState<number>(0);
+  const titleViewImage = 'VIEW IMAGE';
   const title_goToSource = 'GO TO SOURCE';
+  const titleButtonClose = 'CLOSE';
+
   useEffect(() => {
     const decodedPathname = decodeURI(window.location.pathname.split('/')[2].replace(/_/g, ' '));
     setPathname(decodedPathname);
