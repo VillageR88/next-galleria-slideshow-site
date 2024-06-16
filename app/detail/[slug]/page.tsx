@@ -1,15 +1,16 @@
 'use client';
-import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/detail/[slug]/Footer';
 import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { newLineHardCoder } from '@/app/_lib/functions';
 import imageView from '@/public/assets/shared/icon-view-image.svg';
+import { DataContext } from '@/app/_lib/DataContext';
 
 export default function Page() {
+  const { setShowSlideshow } = useContext(DataContext);
   const titleViewImage = 'VIEW IMAGE';
   const [showGallery, setShowGallery] = useState<boolean>(false);
   const titleButtonClose = 'CLOSE';
@@ -35,10 +36,15 @@ export default function Page() {
   useEffect(() => {
     setProgress(((indexProgress + 1) / dataJson.length) * 100);
   }, [indexProgress]);
+
+  useEffect(() => {
+    setShowSlideshow(true);
+  }, [setShowSlideshow]);
+
   if (!data) return null;
 
   return (
-    <div className={`z-0 flex min-h-dvh flex-col justify-start p-[40px] font-libreBaskerville sm:min-h-screen`}>
+    <>
       <div
         className={`${showGallery ? 'flex' : 'hidden'} absolute left-0 top-0 z-10 size-full flex-col items-center gap-[41px] bg-black/[85.39%] text-end`}
       >
@@ -55,12 +61,11 @@ export default function Page() {
           <Image className="size-fit" width={1} height={1} src={'/' + data.images.gallery} alt={data.name} />
         </div>
       </div>
-      <Navbar />
       <div className="mt-[100px] flex h-[624px] min-w-full justify-between">
-        <div className="flex">
+        <div className="flex w-full">
           <div className="relative size-fit">
             <Image
-              className="h-[560px] w-[475px]"
+              className="h-[560px] max-w-[475px]"
               width={475}
               height={560}
               src={'/' + data.images.hero.large}
@@ -127,6 +132,6 @@ export default function Page() {
           }
         }}
       />
-    </div>
+    </>
   );
 }
