@@ -6,12 +6,29 @@ import { useRouter } from 'next/navigation';
 import { newLineHardCoder } from '@/app/_lib/functions';
 
 const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => {
+  const [show, setShow] = useState<boolean[]>([]);
   const router = useRouter();
 
   return (
     <div className="flex flex-col gap-[40px]">
       {dataJson.map((data, index) => {
         // const dataName = data.name === 'Van Gogh self-portrait' ? 'Van Gogh\nself-portrait' : data.name;
+        const GalleryImage = () => (
+          <Image
+            onLoad={() => {
+              setShow((prev) => {
+                const newShow = [...prev];
+                newShow[index] = true;
+                return newShow;
+              });
+            }}
+            src={data.images.thumbnail}
+            width={10}
+            height={10}
+            className="size-fit"
+            alt={data.name}
+          />
+        );
 
         if (array.includes(index))
           return (
@@ -23,14 +40,16 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
               type="button"
               className={`relative ${classExtension ? classExtension : ''}`}
             >
-              <Image src={data.images.thumbnail} width={10} height={10} className="size-fit" alt={data.name} />
-              {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
-              <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
-                <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
-                  {newLineHardCoder(data.name)}
-                </h2>
-                <p className="text-[13px] text-white/75">{data.artist.name}</p>
-              </div>
+              <GalleryImage />
+              {show[index] && (
+                /* eslint-disable-next-line tailwindcss/no-custom-classname */
+                <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
+                  <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
+                    {newLineHardCoder(data.name)}
+                  </h2>
+                  <p className="text-[13px] text-white/75">{data.artist.name}</p>
+                </div>
+              )}
             </button>
           );
       })}
