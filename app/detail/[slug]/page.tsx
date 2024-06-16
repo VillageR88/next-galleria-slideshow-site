@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { newLineHardCoder } from '@/app/_lib/functions';
 import imageView from '@/public/assets/shared/icon-view-image.svg';
 import { DataContext } from '@/app/_lib/DataContext';
+import Gallery from './Gallery';
 
 export default function Page() {
   const router = useRouter();
@@ -46,22 +47,12 @@ export default function Page() {
 
   return (
     <>
-      <div
-        className={`${showGallery ? 'flex' : 'hidden'} absolute left-0 top-0 z-10 size-full flex-col items-center gap-[41px] bg-black/[85.39%] text-end`}
-      >
-        <div className="flex flex-col items-end gap-[41px]">
-          <button
-            onClick={() => {
-              setShowGallery(false);
-            }}
-            type="button"
-            className="mt-[127px] text-[14px] font-bold tracking-[3px] text-white"
-          >
-            {titleButtonClose}
-          </button>
-          <Image className="size-fit" width={1} height={1} src={'/' + data.images.gallery} alt={data.name} />
-        </div>
-      </div>
+      <Gallery
+        data={data}
+        setShowGallery={setShowGallery}
+        showGallery={showGallery}
+        titleButtonClose={titleButtonClose}
+      />
       <div className="mt-[100px] flex h-[624px] min-w-full justify-between">
         <div className="flex w-full">
           <div className="relative size-fit">
