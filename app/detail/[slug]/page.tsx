@@ -14,7 +14,6 @@ export default function Page() {
   const router = useRouter();
   const [pathname, setPathname] = useState<string>('');
   const [progress, setProgress] = useState<number>(0);
-  const [showDescription, setShowDescription] = useState<boolean>(false);
   const title_goToSource = 'GO TO SOURCE';
   useEffect(() => {
     const decodedPathname = decodeURI(window.location.pathname.split('/')[2].replace(/_/g, ' '));
@@ -43,9 +42,6 @@ export default function Page() {
         <div className="flex">
           <div className="relative size-fit">
             <Image
-              onLoad={() => {
-                setShowDescription(true);
-              }}
               className="h-[560px] w-[475px]"
               width={475}
               height={560}
@@ -53,15 +49,13 @@ export default function Page() {
               alt={data.name}
               priority
             />
-            {showDescription && (
-              <button
-                type="button"
-                className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white"
-              >
-                <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
-                <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
-              </button>
-            )}
+            <button
+              type="button"
+              className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white"
+            >
+              <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
+              <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
+            </button>
           </div>
           <div className="flex h-full flex-col justify-between">
             <div className="relative ml-[-65px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
