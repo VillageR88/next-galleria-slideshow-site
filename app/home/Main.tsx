@@ -6,18 +6,17 @@ import { useRouter } from 'next/navigation';
 import { newLineHardCoder } from '@/app/_lib/functions';
 
 const Column = ({ array, classExtension }: { array: number[]; classExtension?: string }) => {
-  const [show, setShow] = useState<boolean[]>([]);
+  const [showDescription, setShowDescription] = useState<boolean[]>([]);
   const router = useRouter();
 
   return (
     <div className="flex flex-col gap-[40px]">
       {dataJson.map((data, index) => {
-        // const dataName = data.name === 'Van Gogh self-portrait' ? 'Van Gogh\nself-portrait' : data.name;
         const GalleryImage = () => (
           <Image
             priority
             onLoad={() => {
-              setShow((prev) => {
+              setShowDescription((prev) => {
                 const newShow = [...prev];
                 newShow[index] = true;
                 return newShow;
@@ -42,7 +41,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
               className={`relative ${classExtension ? classExtension : ''}`}
             >
               <GalleryImage />
-              {show[index] && (
+              {showDescription[index] && (
                 /* eslint-disable-next-line tailwindcss/no-custom-classname */
                 <div className="to absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
                   <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
