@@ -15,7 +15,7 @@ export default function Main({
   const titleViewImage = 'VIEW IMAGE';
   const title_goToSource = 'GO TO SOURCE';
   return (
-    <div className="mt-[100px] flex h-[624px] min-w-full justify-between">
+    <main className="mt-[100px] flex h-[624px] min-w-full justify-between">
       <div className="flex w-full">
         <div className="relative size-fit">
           <Image
@@ -67,6 +67,6 @@ export default function Main({
           {title_goToSource}
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

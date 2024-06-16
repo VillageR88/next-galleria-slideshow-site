@@ -10,7 +10,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
   const router = useRouter();
 
   return (
-    <div className="flex flex-col gap-[40px]">
+    <main className="flex flex-col gap-[40px]">
       {dataJson.map((data, index) => {
         const GalleryImage = () => (
           <Image
@@ -54,7 +54,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
             </button>
           );
       })}
-    </div>
+    </main>
   );
 };
 export default function Main() {

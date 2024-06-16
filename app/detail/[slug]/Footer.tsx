@@ -18,7 +18,7 @@ export default function Footer({
   nextClicked(): void;
 }) {
   return (
-    <div className="mt-[75px] flex w-full flex-col">
+    <footer className="mt-[75px] flex w-full flex-col">
       <div className="ml-[-40px] h-[2px] w-[calc(100%+80px)] bg-[#E5E5E5]">
         <div style={{ width: `${progress.toString()}%` }} className="h-full bg-black"></div>
       </div>
@@ -32,6 +32,6 @@ export default function Footer({
           <ButtonNext disabled={nextDisabled} clicked={nextClicked} />
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
