@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { Dispatch, SetStateAction } from 'react';
+import type { DataJson } from '@/app/_lib/interfaces';
+
 export default function Gallery({
   showGallery,
   setShowGallery,
@@ -9,24 +11,7 @@ export default function Gallery({
   showGallery: boolean;
   setShowGallery: Dispatch<SetStateAction<boolean>>;
   titleButtonClose: string;
-  data: {
-    name: string;
-    year: number;
-    description: string;
-    source: string;
-    artist: {
-      image: string;
-      name: string;
-    };
-    images: {
-      thumbnail: string;
-      hero: {
-        small: string;
-        large: string;
-      };
-      gallery: string;
-    };
-  };
+  data: DataJson;
 }) {
   return (
     <>

@@ -1,5 +1,6 @@
 import ButtonNext from '@/app/components/ButtonNext';
 import ButtonPrevious from '@/app/components/ButtonPrevious';
+import type { DataJson } from '@/app/_lib/interfaces';
 
 export default function Footer({
   progress,
@@ -10,24 +11,7 @@ export default function Footer({
   nextClicked,
 }: {
   progress: number;
-  data: {
-    name: string;
-    year: number;
-    description: string;
-    source: string;
-    artist: {
-      image: string;
-      name: string;
-    };
-    images: {
-      thumbnail: string;
-      hero: {
-        small: string;
-        large: string;
-      };
-      gallery: string;
-    };
-  };
+  data: DataJson;
   nextDisabled: boolean;
   previousDisabled: boolean;
   previousClicked(): void;
