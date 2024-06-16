@@ -18,31 +18,33 @@ export default function Main({
   const FirstComponent = () => {
     const Block1 = () => {
       return (
-        <div className="relative size-fit">
-          <Image
-            className="h-[560px] min-w-[475px]"
-            width={475}
-            height={560}
-            src={'/' + data.images.hero.large}
-            alt={data.name}
-            priority
-          />
-          <button
-            onClick={() => {
-              setShowGallery(true);
-            }}
-            type="button"
-            className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white"
-          >
-            <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
-            <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
-          </button>
+        <div className="relative size-full max-w-[475px]">
+          <div className="relative size-full max-w-[475px]">
+            <Image
+              className="absolute h-[560px] max-w-[475px]"
+              width={475}
+              height={560}
+              src={'/' + data.images.hero.large}
+              alt={data.name}
+              priority
+            />
+            <button
+              onClick={() => {
+                setShowGallery(true);
+              }}
+              type="button"
+              className="absolute bottom-[80px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white"
+            >
+              <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
+              <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
+            </button>
+          </div>
         </div>
       );
     };
     const Block2 = () => {
       return (
-        <div className="flex h-full flex-col justify-between">
+        <div className="flex h-full w-fit flex-col justify-between">
           <div className="relative ml-[-65px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
             <h1 className="whitespace-pre-wrap text-balance text-[56px] font-bold leading-[64px] text-black">
               {newLineHardCoder(data.name)}
@@ -69,11 +71,9 @@ export default function Main({
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-fit flex-col justify-between">
-        <div className="relative pr-[125px] pt-[150px]">
-          <h2 className="absolute right-0 top-0 -z-10 text-[200px] font-bold leading-[150px] text-[#F3F3F3]">
-            {data.year}
-          </h2>
+      <div className="flex w-fit max-w-[500px] flex-col justify-between pl-[40px]">
+        <div>
+          <h2 className="-z-10 flex text-[200px] font-bold leading-[150px] text-[#F3F3F3]">{data.year}</h2>
           <p className="mt-[-35px] w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">{data.description}</p>
         </div>
         <Link
