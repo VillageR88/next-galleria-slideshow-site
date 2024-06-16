@@ -14,12 +14,13 @@ export default function Main({
 }) {
   const titleViewImage = 'VIEW IMAGE';
   const title_goToSource = 'GO TO SOURCE';
-  return (
-    <main className="mt-[100px] flex h-[624px] min-w-full justify-between">
-      <div className="flex w-full">
+
+  const FirstComponent = () => {
+    const Block1 = () => {
+      return (
         <div className="relative size-fit">
           <Image
-            className="h-[560px] max-w-[475px]"
+            className="h-[560px] min-w-[475px]"
             width={475}
             height={560}
             src={'/' + data.images.hero.large}
@@ -37,6 +38,10 @@ export default function Main({
             <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
           </button>
         </div>
+      );
+    };
+    const Block2 = () => {
+      return (
         <div className="flex h-full flex-col justify-between">
           <div className="relative ml-[-65px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
             <h1 className="whitespace-pre-wrap text-balance text-[56px] font-bold leading-[64px] text-black">
@@ -52,8 +57,19 @@ export default function Main({
             src={'/' + data.artist.image}
           />
         </div>
+      );
+    };
+    return (
+      <div className="flex w-full">
+        <Block1 />
+        <Block2 />
       </div>
-      <div className="flex min-w-fit flex-col justify-between">
+    );
+  };
+
+  const SecondComponent = () => {
+    return (
+      <div className="flex w-fit flex-col justify-between">
         <div className="relative pr-[125px] pt-[150px]">
           <h2 className="absolute right-0 top-0 -z-10 text-[200px] font-bold leading-[150px] text-[#F3F3F3]">
             {data.year}
@@ -67,6 +83,12 @@ export default function Main({
           {title_goToSource}
         </Link>
       </div>
+    );
+  };
+  return (
+    <main className="mt-[100px] flex h-[624px] w-full max-w-full justify-between">
+      <FirstComponent />
+      <SecondComponent />
     </main>
   );
 }
