@@ -23,7 +23,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
                   return newShow;
                 });
             }}
-            src={'/' + data.images.thumbnail}
+            src={data.images.thumbnail.slice(1)}
             width={10000}
             height={1}
             className="relative -z-10 size-fit"
