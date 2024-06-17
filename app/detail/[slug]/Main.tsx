@@ -24,7 +24,7 @@ export default function Main({
           height={128}
           className={propClass}
           alt={data.artist.name + ' image'}
-          src={'/' + data.artist.image}
+          src={data.artist.image.slice(1)}
         />
       );
     };
@@ -50,7 +50,7 @@ export default function Main({
               className="h-[560px] max-w-[475px] xl:absolute"
               width={475}
               height={560}
-              src={'/' + data.images.hero.large}
+              src={data.images.hero.large.slice(1)}
               alt={data.name}
               priority
             />
