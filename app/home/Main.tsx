@@ -23,9 +23,9 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
                   return newShow;
                 });
             }}
-            src={data.images.thumbnail}
-            width={10}
-            height={10}
+            src={'/' + data.images.thumbnail}
+            width={10000}
+            height={1}
             className="relative -z-10 size-fit"
             alt={data.name}
           />
