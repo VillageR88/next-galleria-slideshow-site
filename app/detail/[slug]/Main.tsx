@@ -62,7 +62,7 @@ export default function Main({
     };
     const Block2 = () => {
       return (
-        <div className="flex h-full w-fit flex-col justify-between">
+        <div className="flex h-full flex-col justify-between xl:w-fit">
           <div className="relative ml-[-65px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
             <h1 className="whitespace-pre-wrap text-balance text-[56px] font-bold leading-[64px] text-black">
               {newLineHardCoder(data.name)}
@@ -83,11 +83,11 @@ export default function Main({
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-full max-w-[572px] flex-row justify-center xl:w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
+      <div className="flex w-full max-w-[850px] flex-row justify-center xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
         <h2 className="-z-10 flex w-full text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
           {data.year}
         </h2>
-        <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between xl:ml-0 xl:min-w-fit xl:gap-[81px]">
+        <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
           <p className="mt-[75px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
             {data.description}
           </p>
