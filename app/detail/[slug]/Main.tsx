@@ -83,21 +83,21 @@ export default function Main({
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-fit flex-col justify-between pl-[40px]">
-        <div className="flex flex-col">
-          <h2 className="-z-10 flex text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:text-[14vw] screen1440:text-[200px]">
-            {data.year}
-          </h2>
-          <p className="mt-[-35px] w-full max-w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
+      <div className="flex w-full max-w-[572px] flex-row justify-center xl:w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
+        <h2 className="-z-10 flex w-full text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
+          {data.year}
+        </h2>
+        <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between xl:ml-0 xl:min-w-fit xl:gap-[81px]">
+          <p className="mt-[75px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
             {data.description}
           </p>
+          <Link
+            href={data.source}
+            className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] xl:mb-[53px]"
+          >
+            {title_goToSource}
+          </Link>
         </div>
-        <Link
-          href={data.source}
-          className="mb-[53px] size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D]"
-        >
-          {title_goToSource}
-        </Link>
       </div>
     );
   };
@@ -107,4 +107,22 @@ export default function Main({
       <SecondComponent />
     </main>
   );
+}
+{
+  /* <div className="flex w-fit flex-col justify-between pl-[40px]">
+<div className="flex flex-col">
+  <h2 className="-z-10 flex text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:text-[14vw] screen1440:text-[200px]">
+    {data.year}
+  </h2>
+  <p className="mt-[-35px] w-full max-w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
+    {data.description}
+  </p>
+</div>
+<Link
+  href={data.source}
+  className="mb-[53px] size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D]"
+>
+  {title_goToSource}
+</Link>
+</div> */
 }
