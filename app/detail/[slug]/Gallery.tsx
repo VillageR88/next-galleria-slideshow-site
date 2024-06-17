@@ -30,7 +30,14 @@ export default function Gallery({
         >
           {titleButtonClose}
         </button>
-        <Image className="size-fit" width={10000} height={1} src={data.images.gallery.slice(1)} alt={data.name} />
+        <Image
+          priority
+          className="size-fit"
+          width={10000}
+          height={1}
+          src={data.images.gallery.slice(1)}
+          alt={data.name}
+        />
       </div>
     </>
   );
