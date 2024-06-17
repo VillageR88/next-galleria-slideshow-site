@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { newLineHardCoder } from '@/app/_lib/functions';
@@ -16,35 +17,45 @@ export default function Main({
   const title_goToSource = 'GO TO SOURCE';
 
   const FirstComponent = () => {
+    const ArtistImage = ({ propClass }: { propClass: string }) => {
+      return (
+        <Image
+          width={128}
+          height={128}
+          className={propClass}
+          alt={data.artist.name + ' image'}
+          src={'/' + data.artist.image}
+        />
+      );
+    };
     const Block1 = () => {
+      const ButtonViewImage = () => {
+        return (
+          <button
+            onClick={() => {
+              setShowGallery(true);
+            }}
+            type="button"
+            className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white xl:bottom-[80px]"
+          >
+            <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
+            <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
+          </button>
+        );
+      };
       return (
         <div className="relative size-full max-w-[475px]">
-          <div className="relative size-full max-w-[475px]">
+          <div className="relative flex size-full max-w-[475px] items-end xl:items-stretch">
             <Image
-              className="absolute h-[560px] max-w-[475px]"
+              className="h-[560px] max-w-[475px] xl:absolute"
               width={475}
               height={560}
               src={'/' + data.images.hero.large}
               alt={data.name}
               priority
             />
-            <Image
-              width={128}
-              height={128}
-              className="absolute bottom-0 left-[calc(30px+475px)] size-[128px]"
-              alt={data.artist.name + ' image'}
-              src={'/' + data.artist.image}
-            />
-            <button
-              onClick={() => {
-                setShowGallery(true);
-              }}
-              type="button"
-              className="absolute bottom-[80px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white"
-            >
-              <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
-              <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
-            </button>
+            <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] z-10 size-[128px] absolute xl:block hidden" />
+            <ButtonViewImage />
           </div>
         </div>
       );
@@ -58,11 +69,12 @@ export default function Main({
             </h1>
             <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
           </div>
+          <ArtistImage propClass="size-[128px] xl:hidden block ml-[30px]" />
         </div>
       );
     };
     return (
-      <div className="flex w-full">
+      <div className="flex w-full justify-center xl:justify-stretch">
         <Block1 />
         <Block2 />
       </div>
@@ -73,7 +85,7 @@ export default function Main({
     return (
       <div className="flex w-fit flex-col justify-between pl-[40px]">
         <div className="flex flex-col">
-          <h2 className="-z-10 flex text-[14vw] font-bold leading-[150px] text-[#F3F3F3] screen1440:text-[200px]">
+          <h2 className="-z-10 flex text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:text-[14vw] screen1440:text-[200px]">
             {data.year}
           </h2>
           <p className="mt-[-35px] w-full max-w-[350px] text-[14px] font-bold leading-[28px] text-[#7D7D7D]">
@@ -90,7 +102,7 @@ export default function Main({
     );
   };
   return (
-    <main className="mt-[100px] flex h-[624px] w-full max-w-full justify-between">
+    <main className="mt-[100px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] xl:flex-row xl:items-stretch xl:gap-0">
       <FirstComponent />
       <SecondComponent />
     </main>
