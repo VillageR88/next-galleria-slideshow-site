@@ -29,6 +29,19 @@ export default function Main({
       );
     };
     const Block1 = () => {
+      const HeroImage = () => {
+        return (
+          <Image
+            className="h-[560px] max-w-[475px] xl:absolute"
+            width={475}
+            height={560}
+            src={data.images.hero.large.slice(1)}
+            alt={data.name}
+            priority
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
+          />
+        );
+      };
       const ButtonViewImage = () => {
         return (
           <button
@@ -46,14 +59,7 @@ export default function Main({
       return (
         <div className="relative size-full max-w-[475px]">
           <div className="relative flex size-full max-w-[475px] items-end xl:items-stretch">
-            <Image
-              className="h-[560px] max-w-[475px] xl:absolute"
-              width={475}
-              height={560}
-              src={data.images.hero.large.slice(1)}
-              alt={data.name}
-              priority
-            />
+            <HeroImage />
             <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] size-[128px] absolute xl:block hidden" />
             <ButtonViewImage />
           </div>
