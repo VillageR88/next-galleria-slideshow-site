@@ -54,7 +54,7 @@ export default function Main({
               alt={data.name}
               priority
             />
-            <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] z-10 size-[128px] absolute xl:block hidden" />
+            <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] size-[128px] absolute xl:block hidden" />
             <ButtonViewImage />
           </div>
         </div>
