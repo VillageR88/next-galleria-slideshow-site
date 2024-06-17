@@ -63,18 +63,18 @@ export default function Main({
     const Block2 = () => {
       return (
         <div className="flex h-full flex-col justify-between xl:w-fit">
-          <div className="relative ml-[-65px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px]">
+          <div className="relative ml-[-150px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px] xl:ml-[-65px]">
             <h1 className="whitespace-pre-wrap text-balance text-[56px] font-bold leading-[64px] text-black">
               {newLineHardCoder(data.name)}
             </h1>
             <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
           </div>
-          <ArtistImage propClass="size-[128px] xl:hidden block ml-[30px]" />
+          <ArtistImage propClass="size-[128px] mr-[230px] xl:hidden block ml-[30px]" />
         </div>
       );
     };
     return (
-      <div className="flex w-full justify-center xl:justify-stretch">
+      <div className="flex w-full max-w-[868px] justify-between xl:max-w-full xl:justify-stretch">
         <Block1 />
         <Block2 />
       </div>
