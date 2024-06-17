@@ -25,6 +25,7 @@ export default function Main({
           className={propClass}
           alt={data.artist.name + ' image'}
           src={data.artist.image.slice(1)}
+          priority
         />
       );
     };
@@ -38,7 +39,6 @@ export default function Main({
             src={data.images.hero.large.slice(1)}
             alt={data.name}
             priority
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII="
           />
         );
       };
