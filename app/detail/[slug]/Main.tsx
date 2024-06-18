@@ -3,16 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { newLineHardCoder } from '@/app/_lib/functions';
 import imageView from '@/public/assets/shared/icon-view-image.svg';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { DataContext } from '@/app/_lib/DataContext';
+import { useContext, useEffect, useState } from 'react';
 import type { DataJson } from '@/app/_lib/interfaces';
 
-export default function Main({
-  data,
-  setShowGallery,
-}: {
-  data: DataJson;
-  setShowGallery: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function Main({ data }: { data: DataJson }) {
+  const { setShowGallery } = useContext(DataContext);
   const titleViewImage = 'VIEW IMAGE';
   const title_goToSource = 'GO TO SOURCE';
 

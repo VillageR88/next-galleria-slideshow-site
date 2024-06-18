@@ -12,7 +12,6 @@ import { DataContext } from '@/app/_lib/DataContext';
 export default function Page() {
   const router = useRouter();
   const { setShowSlideshow } = useContext(DataContext);
-  const [showGallery, setShowGallery] = useState<boolean>(false);
   const [pathname, setPathname] = useState<string>('');
   const [progress, setProgress] = useState<number>(0);
 
@@ -45,13 +44,8 @@ export default function Page() {
 
   return (
     <>
-      <Gallery
-        data={data}
-        setShowGallery={setShowGallery}
-        showGallery={showGallery}
-        titleButtonClose={titleButtonClose}
-      />
-      <Main data={data} setShowGallery={setShowGallery} />
+      <Gallery data={data} titleButtonClose={titleButtonClose} />
+      <Main data={data} />
       <Footer
         data={data}
         progress={progress}

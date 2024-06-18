@@ -1,18 +1,10 @@
 import Image from 'next/image';
-import { Dispatch, SetStateAction } from 'react';
+import { DataContext } from '@/app/_lib/DataContext';
+import { useContext } from 'react';
 import type { DataJson } from '@/app/_lib/interfaces';
 
-export default function Gallery({
-  showGallery,
-  setShowGallery,
-  titleButtonClose,
-  data,
-}: {
-  showGallery: boolean;
-  setShowGallery: Dispatch<SetStateAction<boolean>>;
-  titleButtonClose: string;
-  data: DataJson;
-}) {
+export default function Gallery({ titleButtonClose, data }: { titleButtonClose: string; data: DataJson }) {
+  const { showGallery, setShowGallery } = useContext(DataContext);
   return (
     <>
       <div
