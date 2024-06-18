@@ -122,7 +122,7 @@ export default function Main({
     );
   };
   return (
-    <main className="mt-[100px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] xl:flex-row xl:items-stretch xl:gap-0">
+    <main className="mt-[100px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] px-[40px] xl:flex-row xl:items-stretch xl:gap-0">
       <FirstComponent />
       <SecondComponent />
     </main>
