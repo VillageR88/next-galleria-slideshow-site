@@ -14,7 +14,7 @@ const config: Config = {
         tablet: '700px',
         screen840: '840px',
         screen1200: '1200px',
-        screenInBetween: '1024px',
+        screen1440: '1440px',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
