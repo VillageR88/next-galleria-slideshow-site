@@ -12,7 +12,7 @@ export default function ButtonNext({ clicked, disabled }: { clicked(): void; dis
   return (
     <button
       ref={buttonRef}
-      className={`stroke-black disabled:stroke-black/15 [&:not(:disabled)]:hover:stroke-black/50`}
+      className={`stroke-black scale-75 md:scale-100 disabled:stroke-black/15 [&:not(:disabled)]:hover:stroke-black/50`}
       disabled={disabled}
       onClick={clicked}
       title="Next slide"
