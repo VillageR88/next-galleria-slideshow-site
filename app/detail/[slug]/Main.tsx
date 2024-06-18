@@ -97,12 +97,12 @@ export default function Main({ data }: { data: DataJson }) {
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-full max-w-[460px] flex-row justify-start md:max-w-[850px] xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
-        <div className="flex w-full max-w-[580px] flex-col items-end md:flex-row md:items-stretch xl:block">
+      <div className="flex w-full max-w-[460px] flex-row justify-center md:max-w-[850px] xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
+        <div className="flex w-full max-w-[780px] flex-col items-end md:flex-row md:items-stretch xl:block">
           <h2 className="-z-10 flex w-fit text-[100px] font-bold leading-[100px] text-[#F3F3F3] md:w-full md:text-[200px] md:leading-[150px] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
             {data.year}
           </h2>
-          <div className="flex h-full flex-col justify-between gap-[39px] md:ml-[-450px] md:w-[457px] md:gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
+          <div className="flex h-full flex-col justify-between gap-[39px] md:ml-[-550px] md:w-[457px] md:gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
             <p className="mt-[-28px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] md:mt-[75px] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
               {data.description}
             </p>
