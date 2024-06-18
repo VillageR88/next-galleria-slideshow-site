@@ -5,10 +5,10 @@ import { ReactNode } from 'react';
 export default function Navbar({ children }: { children: ReactNode }) {
   return (
     <div
-      className={`z-0 flex min-h-dvh flex-col items-center justify-start p-[40px] font-libreBaskerville md:min-h-screen`}
+      className={`z-0 flex min-h-dvh flex-col items-center justify-start py-[40px] font-libreBaskerville md:min-h-screen xl:p-[40px]`}
     >
       <nav className="flex w-full flex-col">
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between px-[40px] xl:px-0">
           <Logo />
           <ButtonSlideshow />
         </div>

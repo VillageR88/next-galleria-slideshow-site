@@ -19,7 +19,7 @@ export default function Footer({
 }) {
   return (
     <footer className="mt-[75px] flex w-full flex-col">
-      <div className="ml-[-40px] h-[2px] w-[calc(100%+80px)] bg-[#E5E5E5]">
+      <div className="h-[2px] w-full bg-[#E5E5E5] xl:ml-[-40px] xl:w-[calc(100%+80px)]">
         <div style={{ width: `${progress.toString()}%` }} className="h-full bg-black"></div>
       </div>
       <div className="flex items-center justify-between px-[40px] py-[28px]">

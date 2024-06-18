@@ -70,7 +70,7 @@ export default function Main({
       };
       return (
         <div className="relative size-full md:max-w-[475px]">
-          <div className="relative flex size-full items-end md:max-w-[475px] xl:items-stretch">
+          <div className="relative size-full md:max-w-[475px]">
             <HeroImage />
             <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] size-[128px] absolute xl:block hidden" />
             <ButtonViewImage />
@@ -102,11 +102,11 @@ export default function Main({
   const SecondComponent = () => {
     return (
       <div className="flex w-full max-w-[850px] flex-row justify-start xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
-        <div className="flex w-full max-w-[580px] xl:block">
-          <h2 className="-z-10 flex w-full text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
+        <div className="flex w-full max-w-[580px] flex-col md:flex-row xl:block">
+          <h2 className="-z-10 flex w-full text-[100px] font-bold leading-[100px] text-[#F3F3F3] md:text-[200px] md:leading-[150px] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
             {data.year}
           </h2>
-          <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
+          <div className="flex h-full flex-col justify-between md:ml-[-450px] md:w-[457px] md:gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
             <p className="mt-[75px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
               {data.description}
             </p>
