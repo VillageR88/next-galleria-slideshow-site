@@ -1,7 +1,7 @@
 export default function ButtonNext({ clicked, disabled }: { clicked(): void; disabled: boolean }) {
   return (
     <button
-      className={`stroke-black disabled:stroke-black/15`}
+      className={`stroke-black transition-colors disabled:stroke-black/15 [&:not(:disabled)]:hover:stroke-black/50`}
       disabled={disabled}
       onClick={clicked}
       title="Next slide"
