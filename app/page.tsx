@@ -1,13 +1,17 @@
-import Navbar from '@/app/components/Navbar';
+'use client';
 import Main from '@/app/home/Main';
+import { useEffect, useContext } from 'react';
+import { DataContext } from '@/app/_lib/DataContext';
 
 export default function Home() {
+  const { setShowSlideshow } = useContext(DataContext);
+  useEffect(() => {
+    setShowSlideshow(false);
+  }, [setShowSlideshow]);
+
   return (
-    <div
-      className={`z-0 flex min-h-dvh flex-col items-center justify-start p-[40px] font-libreBaskerville sm:min-h-screen`}
-    >
-      <Navbar />
+    <>
       <Main />
-    </div>
+    </>
   );
 }

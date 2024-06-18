@@ -1,8 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Libre_Baskerville } from 'next/font/google';
+import Layout from '@/app/components/layout';
 
 import { ReactNode } from 'react';
+import DataProvider from './_lib/DataContext';
 
 const libreBaskerville = Libre_Baskerville({
   display: 'swap',
@@ -27,7 +29,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta property="og:image" content={undefined} />
       </head>
       <body className={`${libreBaskerville.variable} mx-auto w-full max-w-[90em] overflow-x-clip bg-[#FFFFFF]`}>
-        {children}
+        <DataProvider>
+          <Layout>{children}</Layout>
+        </DataProvider>
       </body>
     </html>
   );
