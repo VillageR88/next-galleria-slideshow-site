@@ -89,20 +89,22 @@ export default function Main({
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-full max-w-[850px] flex-row justify-center xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
-        <h2 className="-z-10 flex w-full text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
-          {data.year}
-        </h2>
-        <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
-          <p className="mt-[75px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
-            {data.description}
-          </p>
-          <Link
-            href={data.source}
-            className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] xl:mb-[53px]"
-          >
-            {title_goToSource}
-          </Link>
+      <div className="flex w-full max-w-[850px] flex-row justify-start xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
+        <div className="flex w-full max-w-[580px] xl:block">
+          <h2 className="-z-10 flex w-full text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
+            {data.year}
+          </h2>
+          <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
+            <p className="mt-[75px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
+              {data.description}
+            </p>
+            <Link
+              href={data.source}
+              className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] xl:mb-[53px]"
+            >
+              {title_goToSource}
+            </Link>
+          </div>
         </div>
       </div>
     );
