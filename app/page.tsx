@@ -89,9 +89,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="mt-[40px] grid size-fit gap-[40px] tablet:grid-cols-2 xl:grid-cols-4">
+    <main className="mt-[40px] grid size-fit gap-[40px] md:grid-cols-2 xl:grid-cols-4">
       <Column array={array1}></Column>
-      <Column classExtension="tablet:block hidden" array={array2}></Column>
+      <Column classExtension="md:block hidden" array={array2}></Column>
       <Column classExtension="xl:block hidden" array={array3}></Column>
       <Column classExtension="xl:block hidden" array={array4}></Column>
     </main>

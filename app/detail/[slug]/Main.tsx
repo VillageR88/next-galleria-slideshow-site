@@ -80,7 +80,7 @@ export default function Main({
       );
     };
     return (
-      <div className="flex w-full max-w-[868px] justify-center xl:max-w-full xl:justify-stretch">
+      <div className="flex w-full max-w-[868px] flex-col justify-center md:flex-row xl:max-w-full xl:justify-stretch">
         <Block1 />
         <Block2 />
       </div>
