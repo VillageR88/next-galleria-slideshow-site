@@ -26,7 +26,7 @@ export default function Gallery({
             setShowGallery(false);
           }}
           type="button"
-          className="text-[14px] font-bold tracking-[3px] text-white"
+          className="text-[14px] font-bold tracking-[3px] text-white transition-colors duration-[50ms] hover:text-white/25"
         >
           {titleButtonClose}
         </button>

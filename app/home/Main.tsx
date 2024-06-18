@@ -39,7 +39,7 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
               }}
               key={index}
               type="button"
-              className={`relative size-full transition-colors hover:bg-white/50 ${classExtension ? classExtension : ''}`}
+              className={`relative size-full transition-colors duration-100 hover:bg-white/50 ${classExtension ? classExtension : ''}`}
             >
               <GalleryImage />
               {showDescription[index] && (
