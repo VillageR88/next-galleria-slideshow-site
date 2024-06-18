@@ -8,7 +8,7 @@ export default function Navbar({ children }: { children: ReactNode }) {
       className={`z-0 flex min-h-dvh flex-col items-center justify-start p-[40px] font-libreBaskerville sm:min-h-screen`}
     >
       <nav className="flex w-full flex-col">
-        <div className="flex w-full justify-between">
+        <div className="flex w-full items-center justify-between">
           <Logo />
           <ButtonSlideshow />
         </div>
