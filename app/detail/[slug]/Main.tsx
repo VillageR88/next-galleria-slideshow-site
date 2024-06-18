@@ -75,12 +75,12 @@ export default function Main({
             </h1>
             <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
           </div>
-          <ArtistImage propClass="size-[128px] mr-[230px] xl:hidden block ml-[30px]" />
+          <ArtistImage propClass="size-[128px]  xl:hidden block ml-[30px]" />
         </div>
       );
     };
     return (
-      <div className="flex w-full max-w-[868px] justify-between xl:max-w-full xl:justify-stretch">
+      <div className="flex w-full max-w-[868px] justify-center xl:max-w-full xl:justify-stretch">
         <Block1 />
         <Block2 />
       </div>
