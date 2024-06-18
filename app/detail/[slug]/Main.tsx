@@ -45,7 +45,7 @@ export default function Main({
         }, []);
         return (
           <Image
-            className="h-[280px] max-w-[327px] md:h-[560px] md:max-w-[475px] xl:absolute"
+            className="md:h-[560px] md:max-w-[475px] xl:absolute"
             width={475}
             height={560}
             src={source}
@@ -70,7 +70,7 @@ export default function Main({
       };
       return (
         <div className="relative size-full md:max-w-[475px]">
-          <div className="relative size-full md:max-w-[475px]">
+          <div className="relative flex size-full md:max-w-[475px]">
             <HeroImage />
             <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] size-[128px] absolute xl:block hidden" />
             <ButtonViewImage />
@@ -80,14 +80,14 @@ export default function Main({
     };
     const Block2 = () => {
       return (
-        <div className="flex h-full flex-col justify-between xl:w-fit">
-          <div className="relative mt-[-79px] flex h-fit max-w-[280px] flex-col gap-[8px] bg-white pb-[67px] pl-[24px] md:ml-[-150px] md:mt-0 md:max-w-[445px] md:gap-[24px] md:pl-[65px] xl:ml-[-65px]">
-            <h1 className="whitespace-pre-wrap text-balance text-[24px] font-bold leading-[29px] text-black md:text-[56px] md:leading-[64px]">
+        <div className="flex h-full flex-col justify-between pr-[47px] md:pr-0 xl:w-fit">
+          <div className="relative mt-[-79px] flex h-fit max-w-[280px] flex-col gap-[8px] bg-white py-[24px] pb-[67px] pl-[24px] md:ml-[-150px] md:mt-0 md:max-w-[445px] md:gap-[24px] md:pl-[65px] xl:ml-[-65px]">
+            <h1 className="w-full whitespace-pre-wrap text-pretty text-[24px] font-bold leading-[29px] text-black md:text-balance md:text-[56px] md:leading-[64px]">
               {newLineHardCoder(data.name)}
             </h1>
             <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
           </div>
-          <ArtistImage propClass="size-[128px]  xl:hidden block ml-[30px]" />
+          <ArtistImage propClass="md:size-[128px] mt-[-47px] md:mt-0 z-10 size-[64px] xl:hidden block md:ml-[30px] ml-[16px]" />
         </div>
       );
     };
@@ -122,7 +122,7 @@ export default function Main({
     );
   };
   return (
-    <main className="mt-[24px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] px-[40px] md:mt-[40px] xl:mt-[100px] xl:flex-row xl:items-stretch xl:gap-0">
+    <main className="mt-[24px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] px-[24px] md:mt-[40px] md:px-[40px] xl:mt-[100px] xl:flex-row xl:items-stretch xl:gap-0">
       <FirstComponent />
       <SecondComponent />
     </main>
