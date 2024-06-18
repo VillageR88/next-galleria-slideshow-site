@@ -100,7 +100,7 @@ export default function Main({
             </p>
             <Link
               href={data.source}
-              className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] xl:mb-[53px]"
+              className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] transition-colors hover:text-black xl:mb-[53px]"
             >
               {title_goToSource}
             </Link>
