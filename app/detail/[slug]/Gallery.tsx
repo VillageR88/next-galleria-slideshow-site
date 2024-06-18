@@ -6,12 +6,12 @@ import type { DataJson } from '@/app/_lib/interfaces';
 export default function Gallery({ titleButtonClose, data }: { titleButtonClose: string; data: DataJson }) {
   const { showGallery, setShowGallery } = useContext(DataContext);
   return (
-    <>
+    <div className="absolute left-0 top-0 flex min-h-full w-full items-center justify-center py-[50px] xl:py-[127px]">
       <div
-        className={`${showGallery ? 'flex' : 'hidden'} fixed top-0 z-10 size-full flex-col items-center bg-black/[85.39%] text-end`}
+        className={`${showGallery ? 'flex' : 'hidden'} fixed left-0 top-0 z-10 size-full flex-col items-center bg-black/[85.39%] text-end`}
       ></div>
       <div
-        className={`${showGallery ? 'flex' : 'hidden'} absolute top-0 z-10 mt-[127px] flex flex-col items-end gap-[41px] px-[49px]`}
+        className={`${showGallery ? 'flex' : 'hidden'} z-10 mt-[-50px] flex flex-col items-end gap-[41px] px-[49px] md:mt-0`}
       >
         <button
           onClick={() => {
@@ -31,6 +31,6 @@ export default function Gallery({ titleButtonClose, data }: { titleButtonClose: 
           alt={data.name}
         />
       </div>
-    </>
+    </div>
   );
 }

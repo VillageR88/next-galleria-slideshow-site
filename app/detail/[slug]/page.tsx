@@ -43,7 +43,7 @@ export default function Page() {
   if (!data) return null;
 
   return (
-    <>
+    <div className="size-full">
       <Gallery data={data} titleButtonClose={titleButtonClose} />
       <Main data={data} />
       <Footer
@@ -62,6 +62,6 @@ export default function Page() {
           }
         }}
       />
-    </>
+    </div>
   );
 }
