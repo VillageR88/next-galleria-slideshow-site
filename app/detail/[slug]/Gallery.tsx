@@ -19,7 +19,7 @@ export default function Gallery({
         className={`${showGallery ? 'flex' : 'hidden'} fixed top-0 z-10 size-full flex-col items-center bg-black/[85.39%] text-end`}
       ></div>
       <div
-        className={`${showGallery ? 'flex' : 'hidden'} absolute top-0 z-10 mt-[127px] flex flex-col items-end gap-[41px]`}
+        className={`${showGallery ? 'flex' : 'hidden'} absolute top-0 z-10 mt-[127px] flex flex-col items-end gap-[41px] px-[49px]`}
       >
         <button
           onClick={() => {
