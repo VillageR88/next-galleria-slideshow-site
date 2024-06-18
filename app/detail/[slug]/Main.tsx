@@ -49,7 +49,7 @@ export default function Main({
               setShowGallery(true);
             }}
             type="button"
-            className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white xl:bottom-[80px]"
+            className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white transition-colors hover:bg-white/[25.22%] xl:bottom-[80px]"
           >
             <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
             <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
