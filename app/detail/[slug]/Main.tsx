@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { newLineHardCoder } from '@/app/_lib/functions';
 import imageView from '@/public/assets/shared/icon-view-image.svg';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import type { DataJson } from '@/app/_lib/interfaces';
 
 export default function Main({
@@ -31,12 +31,24 @@ export default function Main({
     };
     const Block1 = () => {
       const HeroImage = () => {
+        const [source, setSource] = useState(data.images.hero.large.slice(1));
+        useEffect(() => {
+          const handleResize = () => {
+            if (window.innerWidth < 768) setSource(data.images.hero.small.slice(1));
+            else setSource(data.images.hero.large.slice(1));
+          };
+          handleResize();
+          window.addEventListener('resize', handleResize);
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          };
+        }, []);
         return (
           <Image
-            className="h-[560px] max-w-[475px] xl:absolute"
+            className="h-[280px] max-w-[327px] md:h-[560px] md:max-w-[475px] xl:absolute"
             width={475}
             height={560}
-            src={data.images.hero.large.slice(1)}
+            src={source}
             alt={data.name}
             priority
           />
@@ -49,7 +61,7 @@ export default function Main({
               setShowGallery(true);
             }}
             type="button"
-            className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white transition-colors duration-[50ms] hover:bg-white/[25.22%] xl:bottom-[80px]"
+            className="absolute left-[16px] top-[16px] z-0 flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white transition-colors duration-[50ms] hover:bg-white/[25.22%] md:bottom-[16px] md:top-auto xl:bottom-[80px]"
           >
             <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
             <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
@@ -57,8 +69,8 @@ export default function Main({
         );
       };
       return (
-        <div className="relative size-full max-w-[475px]">
-          <div className="relative flex size-full max-w-[475px] items-end xl:items-stretch">
+        <div className="relative size-full md:max-w-[475px]">
+          <div className="relative flex size-full items-end md:max-w-[475px] xl:items-stretch">
             <HeroImage />
             <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] size-[128px] absolute xl:block hidden" />
             <ButtonViewImage />

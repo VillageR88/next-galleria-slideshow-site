@@ -71,7 +71,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 720) {
+      if (window.innerWidth < 768) {
         setArray1(dataJson.map((_, index) => index));
       } else if (window.innerWidth < 1280) {
         setArray1([0, 4, 8, 11, 2, 6, 13]);
