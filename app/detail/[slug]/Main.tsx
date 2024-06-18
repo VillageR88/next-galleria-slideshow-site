@@ -3,8 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { newLineHardCoder } from '@/app/_lib/functions';
 import imageView from '@/public/assets/shared/icon-view-image.svg';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useContext } from 'react';
 import type { DataJson } from '@/app/_lib/interfaces';
+import { DataContext } from '@/app/_lib/DataContext';
 
 export default function Main({
   data,
@@ -31,15 +32,21 @@ export default function Main({
     };
     const Block1 = () => {
       const HeroImage = () => {
+        const { loadedImages } = useContext(DataContext);
+        console.log(loadedImages);
         return (
-          <Image
-            className="h-[560px] max-w-[475px] xl:absolute"
-            width={475}
-            height={560}
-            src={data.images.hero.large.slice(1)}
-            alt={data.name}
-            priority
-          />
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          loadedImages.find((Img) => Img?.key === data.name) ?? (
+            <Image
+              className="h-[560px] max-w-[475px] xl:absolute"
+              width={475}
+              height={560}
+              src={data.images.hero.large.slice(1)}
+              alt={data.name}
+              priority
+            />
+          )
         );
       };
       const ButtonViewImage = () => {
