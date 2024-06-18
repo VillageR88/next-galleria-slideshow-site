@@ -81,7 +81,7 @@ export default function Main({
     const Block2 = () => {
       return (
         <div className="flex h-full flex-col justify-between xl:w-fit">
-          <div className="relative mt-[-79px] flex h-fit max-w-[445px] flex-col gap-[8px] bg-white pb-[67px] pl-[24px] md:ml-[-150px] md:mt-0 md:gap-[24px] md:pl-[65px] xl:ml-[-65px]">
+          <div className="relative mt-[-79px] flex h-fit max-w-[280px] flex-col gap-[8px] bg-white pb-[67px] pl-[24px] md:ml-[-150px] md:mt-0 md:max-w-[445px] md:gap-[24px] md:pl-[65px] xl:ml-[-65px]">
             <h1 className="whitespace-pre-wrap text-balance text-[24px] font-bold leading-[29px] text-black md:text-[56px] md:leading-[64px]">
               {newLineHardCoder(data.name)}
             </h1>
@@ -122,7 +122,7 @@ export default function Main({
     );
   };
   return (
-    <main className="mt-[100px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] px-[40px] xl:flex-row xl:items-stretch xl:gap-0">
+    <main className="mt-[24px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] px-[40px] md:mt-[40px] xl:mt-[100px] xl:flex-row xl:items-stretch xl:gap-0">
       <FirstComponent />
       <SecondComponent />
     </main>
