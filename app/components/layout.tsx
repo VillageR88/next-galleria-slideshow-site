@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 export default function Navbar({ children }: { children: ReactNode }) {
   return (
     <div
-      className={`z-0 flex min-h-dvh flex-col items-center justify-start py-[40px] font-libreBaskerville md:min-h-screen xl:p-[40px]`}
+      className={`z-0 flex min-h-dvh flex-col items-center justify-start py-[29px] font-libreBaskerville md:min-h-screen md:py-[40px] xl:p-[40px]`}
     >
       <nav className="flex w-full flex-col">
         <div className="flex w-full items-center justify-between px-[40px] xl:px-0">
