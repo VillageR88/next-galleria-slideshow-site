@@ -1,7 +1,18 @@
+'use client';
+import { useEffect, useRef } from 'react';
 export default function ButtonPrevious({ clicked, disabled }: { clicked(): void; disabled: boolean }) {
+  useEffect(() => {
+    const move = () => buttonRef.current?.classList.add('transition-colors');
+    window.addEventListener('mousemove', move);
+    return () => {
+      window.removeEventListener('mousemove', move);
+    };
+  }, []);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   return (
     <button
-      className={`stroke-black disabled:stroke-black/15`}
+      ref={buttonRef}
+      className={`scale-75 stroke-black disabled:stroke-black/15 md:scale-100 [&:not(:disabled)]:hover:stroke-black/50`}
       disabled={disabled}
       onClick={clicked}
       title="Previous slide"

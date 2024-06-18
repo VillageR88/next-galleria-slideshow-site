@@ -3,16 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { newLineHardCoder } from '@/app/_lib/functions';
 import imageView from '@/public/assets/shared/icon-view-image.svg';
-import { Dispatch, SetStateAction } from 'react';
+import { DataContext } from '@/app/_lib/DataContext';
+import { useContext, useEffect, useState } from 'react';
 import type { DataJson } from '@/app/_lib/interfaces';
 
-export default function Main({
-  data,
-  setShowGallery,
-}: {
-  data: DataJson;
-  setShowGallery: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function Main({ data }: { data: DataJson }) {
+  const { setShowGallery } = useContext(DataContext);
   const titleViewImage = 'VIEW IMAGE';
   const title_goToSource = 'GO TO SOURCE';
 
@@ -31,12 +27,24 @@ export default function Main({
     };
     const Block1 = () => {
       const HeroImage = () => {
+        const [source, setSource] = useState(data.images.hero.large.slice(1));
+        useEffect(() => {
+          const handleResize = () => {
+            if (window.innerWidth < 768) setSource(data.images.hero.small.slice(1));
+            else setSource(data.images.hero.large.slice(1));
+          };
+          handleResize();
+          window.addEventListener('resize', handleResize);
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          };
+        }, []);
         return (
           <Image
-            className="h-[560px] max-w-[475px] xl:absolute"
+            className="md:h-[560px] md:max-w-[475px] xl:absolute"
             width={475}
             height={560}
-            src={data.images.hero.large.slice(1)}
+            src={source}
             alt={data.name}
             priority
           />
@@ -49,7 +57,7 @@ export default function Main({
               setShowGallery(true);
             }}
             type="button"
-            className="absolute bottom-[16px] left-[16px] flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white xl:bottom-[80px]"
+            className="absolute left-[16px] top-[16px] z-0 flex h-[40px] w-[152px] items-center justify-center gap-[14px] bg-black/[75.46%] text-white transition-colors duration-[50ms] hover:bg-white/[25.22%] md:bottom-[16px] md:top-auto xl:bottom-[80px]"
           >
             <Image className="size-fit" width={12} height={12} src={imageView as string} alt={titleViewImage} />
             <span className="text-[10px] font-bold leading-3 tracking-[2.14px]">{titleViewImage}</span>
@@ -57,8 +65,8 @@ export default function Main({
         );
       };
       return (
-        <div className="relative size-full max-w-[475px]">
-          <div className="relative flex size-full max-w-[475px] items-end xl:items-stretch">
+        <div className="relative size-full md:max-w-[475px]">
+          <div className="relative flex size-full md:max-w-[475px]">
             <HeroImage />
             <ArtistImage propClass="bottom-0 left-[calc(30px+475px)] size-[128px] absolute xl:block hidden" />
             <ButtonViewImage />
@@ -68,19 +76,19 @@ export default function Main({
     };
     const Block2 = () => {
       return (
-        <div className="flex h-full flex-col justify-between xl:w-fit">
-          <div className="relative ml-[-150px] flex h-fit max-w-[445px] flex-col gap-[24px] bg-white pb-[67px] pl-[65px] xl:ml-[-65px]">
-            <h1 className="whitespace-pre-wrap text-balance text-[56px] font-bold leading-[64px] text-black">
+        <div className="flex h-full flex-col justify-between pr-[47px] md:pr-0 xl:w-fit">
+          <div className="relative mt-[-79px] flex h-fit max-w-[280px] flex-col gap-[8px] bg-white py-[24px] pb-[67px] pl-[24px] md:ml-[-150px] md:mt-0 md:max-w-[445px] md:gap-[24px] md:pl-[65px] md:pt-0 xl:ml-[-65px]">
+            <h1 className="w-full whitespace-pre-wrap text-pretty text-[24px] font-bold leading-[29px] text-black md:text-balance md:text-[56px] md:leading-[64px]">
               {newLineHardCoder(data.name)}
             </h1>
             <p className="text-[15px] text-[#7D7D7D]">{data.artist.name}</p>
           </div>
-          <ArtistImage propClass="size-[128px] mr-[230px] xl:hidden block ml-[30px]" />
+          <ArtistImage propClass="md:size-[128px] mt-[-47px] md:mt-0 z-0 size-[64px] xl:hidden block md:ml-[30px] ml-[16px]" />
         </div>
       );
     };
     return (
-      <div className="flex w-full max-w-[868px] justify-between xl:max-w-full xl:justify-stretch">
+      <div className="flex w-fit max-w-[868px] flex-col justify-center md:w-full md:flex-row xl:max-w-full xl:justify-stretch">
         <Block1 />
         <Block2 />
       </div>
@@ -89,26 +97,28 @@ export default function Main({
 
   const SecondComponent = () => {
     return (
-      <div className="flex w-full max-w-[850px] flex-row justify-center xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
-        <h2 className="-z-10 flex w-full text-[200px] font-bold leading-[150px] text-[#F3F3F3] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
-          {data.year}
-        </h2>
-        <div className="ml-[-450px] flex h-full w-[457px] flex-col justify-between gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
-          <p className="mt-[75px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
-            {data.description}
-          </p>
-          <Link
-            href={data.source}
-            className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] xl:mb-[53px]"
-          >
-            {title_goToSource}
-          </Link>
+      <div className="flex w-full max-w-[460px] flex-row justify-center md:max-w-[850px] xl:w-fit xl:max-w-fit xl:flex-col xl:justify-between xl:pl-[40px]">
+        <div className="flex w-full max-w-[780px] flex-col items-end md:flex-row md:items-stretch xl:block">
+          <h2 className="-z-10 flex w-fit text-[100px] font-bold leading-[100px] text-[#F3F3F3] md:w-full md:text-[200px] md:leading-[150px] xl:ml-0 xl:text-[14vw] screen1440:text-[200px]">
+            {data.year}
+          </h2>
+          <div className="flex h-full flex-col justify-between gap-[39px] md:ml-[-550px] md:w-[457px] md:gap-[81px] xl:ml-0 xl:min-w-fit xl:gap-0">
+            <p className="mt-[-28px] w-full text-[14px] font-bold leading-[28px] text-[#7D7D7D] md:mt-[75px] xl:ml-0 xl:mt-[-35px] xl:max-w-[350px]">
+              {data.description}
+            </p>
+            <Link
+              href={data.source}
+              className="size-fit text-[9px] font-bold tracking-[1.93px] text-[#7D7D7D] underline decoration-[#7D7D7D] transition-colors hover:text-black xl:mb-[53px]"
+            >
+              {title_goToSource}
+            </Link>
+          </div>
         </div>
       </div>
     );
   };
   return (
-    <main className="mt-[100px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between gap-[64px] xl:flex-row xl:items-stretch xl:gap-0">
+    <main className="mt-[24px] flex min-h-[624px] w-full max-w-full flex-col items-center justify-between px-[24px] md:mt-[40px] md:gap-[64px] xl:mt-[100px] xl:flex-row xl:items-stretch xl:gap-0 xl:px-0">
       <FirstComponent />
       <SecondComponent />
     </main>
