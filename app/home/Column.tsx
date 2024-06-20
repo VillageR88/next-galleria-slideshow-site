@@ -1,4 +1,3 @@
-'use client';
 import dataJson from '@/public/assets/data.json';
 import Image from 'next/image';
 import { newLineHardCoder } from '@/app/_lib/functions';
@@ -33,7 +32,9 @@ const Column = ({ array, classExtension }: { array: number[]; classExtension?: s
             >
               <Link prefetch={false} href={`/detail/${data.name.replace(/ /g, '_')}`}>
                 <GalleryImage />
-                <div className="pointer-events-none absolute inset-0 flex min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start">
+                <div
+                  className={`pointer-events-none invisible absolute inset-0 flex size-fit min-h-[170px] w-full flex-col items-start justify-end gap-[7px] self-end bg-gradient-to-b from-[#000000]/0 to-[#000000]/[84%] px-[32px] pb-[32px] text-start group-[&:not(.hidden)]:visible`}
+                >
                   <h2 className="whitespace-pre-wrap text-[24px] font-bold leading-[30px] text-white xl:text-pretty">
                     {newLineHardCoder(data.name)}
                   </h2>

@@ -28,7 +28,6 @@ export default function Main({ data }: { data: DataJson }) {
     const Block1 = () => {
       const HeroImage = () => {
         const [source, setSource] = useState(data.images.hero.large.slice(1));
-        console.log(source);
         useEffect(() => {
           const handleResize = () => {
             if (window.innerWidth < 768) setSource(data.images.hero.small.slice(1));
