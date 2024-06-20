@@ -6,13 +6,14 @@ import { Routes } from '@/app/routes';
 
 export default function ButtonSlideshow() {
   const router = useRouter();
-  const { showSlideshow } = useContext(DataContext);
+  const { showSlideshow, setShowSlideshow } = useContext(DataContext);
   const buttonTitle = showSlideshow ? 'STOP SLIDESHOW' : 'START SLIDESHOW';
   return (
     <button
       onClick={() => {
         if (showSlideshow) router.push(Routes.home);
         else router.push(Routes.firstDetail);
+        setShowSlideshow((prev) => !prev);
       }}
       className="h-fit text-[9px] font-bold tracking-[2.57px] text-[#7D7D7D] transition-colors hover:text-black md:text-[12px]"
       type="button"
