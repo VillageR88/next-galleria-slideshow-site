@@ -6,7 +6,12 @@ import Column from './home/Column';
 export default function Home() {
   const { array1, array2, array3, array4 } = useContext(DataContext);
   return (
-    <main className="mt-[40px] grid size-fit gap-[40px] md:grid-cols-2 xl:grid-cols-4">
+    <main
+      onLoad={() => {
+        document.documentElement.classList.remove('hidden');
+      }}
+      className="mt-[40px] grid size-fit gap-[40px] md:grid-cols-2 xl:grid-cols-4"
+    >
       <Column array={array1} />
       <Column classExtension="md:block hidden" array={array2} />
       <Column classExtension="xl:block hidden" array={array3} />

@@ -22,7 +22,7 @@ export default function DataProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      document.documentElement.classList.remove('hidden');
+      // document.documentElement.classList.remove('hidden');
       if (path === '/') {
         setShowSlideshow(false);
       } else {
