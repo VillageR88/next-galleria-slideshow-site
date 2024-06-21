@@ -1,3 +1,4 @@
+'use client';
 import ButtonNext from '@/app/components/ButtonNext';
 import ButtonPrevious from '@/app/components/ButtonPrevious';
 import type { DataJson } from '@/app/_lib/interfaces';
@@ -7,15 +8,17 @@ export default function Footer({
   data,
   nextDisabled,
   previousDisabled,
-  previousClicked,
-  nextClicked,
+
+  previousIndex,
+  nextIndex,
 }: {
   progress: number;
   data: DataJson;
   nextDisabled: boolean;
   previousDisabled: boolean;
-  previousClicked(): void;
-  nextClicked(): void;
+
+  previousIndex: number;
+  nextIndex: number;
 }) {
   return (
     <footer className="mt-[95px] flex w-full flex-col md:mt-[75px]">
@@ -28,8 +31,8 @@ export default function Footer({
           <p className="text-[10px] text-black/[75.28%] md:text-[13px]">{data.artist.name}</p>
         </div>
         <div className="flex gap-[21px] md:gap-[40px]">
-          <ButtonPrevious disabled={previousDisabled} clicked={previousClicked} />
-          <ButtonNext disabled={nextDisabled} clicked={nextClicked} />
+          <ButtonPrevious previousIndex={previousIndex} disabled={previousDisabled} />
+          <ButtonNext nextIndex={nextIndex} disabled={nextDisabled} />
         </div>
       </div>
     </footer>

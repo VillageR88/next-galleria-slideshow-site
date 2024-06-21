@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { DataContext } from '@/app/_lib/DataContext';
 import { useContext } from 'react';
